@@ -1,0 +1,15 @@
+version: 2
+
+jobs:
+  test:
+    docker:
+      - image: kakakakakku/amazonlinux-bats
+    steps:
+      - checkout
+      - run: bats *.bats
+
+workflows:
+  version: 2
+  ci:
+    jobs:
+      - test
