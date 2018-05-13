@@ -6,5 +6,5 @@
 #   $1 WORD
 #######################################
 upper_case() {
-  echo $1 | tr '[:lower:]' '[:upper:]'
+  echo "$1" | tr '[:lower:]' '[:upper:]'
 }

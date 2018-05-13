@@ -1,6 +1,14 @@
 version: 2
 
 jobs:
+  lint:
+    docker:
+      - image: koalaman/shellcheck-alpine
+    steps:
+      - checkout
+      - run: shellcheck --version
+      - run: shellcheck --exclude=SC2039 *.sh
+
   test:
     docker:
       - image: kakakakakku/amazonlinux-bats
@@ -12,4 +20,5 @@ workflows:
   version: 2
   ci:
     jobs:
+      - lint
       - test
